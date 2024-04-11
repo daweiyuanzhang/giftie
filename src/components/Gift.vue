@@ -5,7 +5,8 @@
       <img :src="giftImageUrl" alt="" class="gift-image">
     </div>
     <h3>{{ giftName }}</h3>
-    <div v-if="isShowRestart" class="replay-button" @click="replay">重新体验</div>
+    <div v-if="isShowRestart && restartCount > 0" class="replay-button" @click="replay">再来一次</div>
+    <div v-else>抽奖次数已用完</div>
   </div>
 </template>
 
@@ -18,15 +19,20 @@ export default {
       giftName: '',
       giftImageUrl: '',
       isShowRestart: false,
+      restartCount: 0,
     }
   },
   methods: {
     getLocalGift() {
       const giftName = localStorage.getItem(GLOBAL_KEYS.NAME_KEY);
       const giftImageUrl = localStorage.getItem(GLOBAL_KEYS.IMAGE_KEY);
+      const restartCount = localStorage.getItem(GLOBAL_KEYS.RESTART_COUNT_KEY);
+      console.log(restartCount);
+      console.log(restartCount > 0);
       this.giftName = giftName;
       this.giftImageUrl = giftImageUrl;
       this.isShowRestart = IS_SHOW_RESTART;
+      this.restartCount = restartCount;
     },
     replay() {
       localStorage.removeItem(GLOBAL_KEYS.EXIST_KEY);

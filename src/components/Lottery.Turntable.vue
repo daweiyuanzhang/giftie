@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { GLOBAL_KEYS, gifts, homeConfig } from '../gift.setting.js';
+import {GLOBAL_KEYS, RESTART_COUNT, gifts, homeConfig} from '../gift.setting.js';
 export default {
   name: 'LotteryTurntable',
   data() {
@@ -91,12 +91,21 @@ export default {
       });
       this.prizes = prizes;
     },
+
+    getTargetGiftIndex () {
+      if (homeConfig.targetGiftIndex) {
+        return homeConfig.targetGiftIndex;
+      }
+      if (homeConfig.targetGiftIndexList) {
+        let playCount =  localStorage.getItem("playCount") || 0;
+        return homeConfig.targetGiftIndexList[playCount];
+      }
+      return Math.random() * 8 >> 0;
+    },
+
     startCallBack () {
       this.$refs.luckyGrid.play();
-      let targetGiftIndex = homeConfig.targetGiftIndex;
-      if (!!targetGiftIndex === false) {
-        targetGiftIndex = Math.random() * 8 >> 0;
-      }
+      let targetGiftIndex = this.getTargetGiftIndex();
       setTimeout(() => {
         this.$refs.luckyGrid.stop(targetGiftIndex)
       }, homeConfig.timeout);
@@ -104,6 +113,11 @@ export default {
     endCallBack (prize) {
       const { imgs, fullName } = prize;
       const imageUrl = imgs[1].src;
+      let restartCount = localStorage.getItem(GLOBAL_KEYS.RESTART_COUNT_KEY) || RESTART_COUNT;
+      let playCount =  localStorage.getItem("playCount") || 0;
+      playCount++;
+      localStorage.setItem("playCount", playCount);
+      localStorage.setItem(GLOBAL_KEYS.RESTART_COUNT_KEY, --restartCount + '');
       localStorage.setItem(GLOBAL_KEYS.EXIST_KEY, '1');
       localStorage.setItem(GLOBAL_KEYS.NAME_KEY, fullName);
       localStorage.setItem(GLOBAL_KEYS.IMAGE_KEY, imageUrl);
