@@ -6,7 +6,7 @@
     </div>
     <h3>{{ giftName }}</h3>
     <div v-if="isShowRestart && restartCount > 0" class="replay-button" @click="replay">再来一次</div>
-    <div v-else>抽奖次数已用完</div>
+    <div v-else class="replay-button">抽奖次数已用完</div>
   </div>
 </template>
 

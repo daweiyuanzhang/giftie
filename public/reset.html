@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reset</title>
+</head>
+<script type="text/javascript">
+
+    (function () {
+        localStorage.removeItem("HAS_GIFT");
+        localStorage.removeItem("GIFT_NAME");
+        localStorage.removeItem("GIFT_IMAGE_URL");
+        localStorage.removeItem("RESTART_COUNT");
+        localStorage.removeItem("playCount");
+        console.log("clear over");
+        alert("清除完毕！");
+        if (location.hostname !== 'localhost') {
+            location.href = '/index.html';
+        }
+    })()
+</script>
+<body>
+
+</body>
+</html>
