@@ -29,7 +29,7 @@ export const homeConfig = {
   targetGiftIndex: null,
 
   // 指定礼物顺序
-  targetGiftIndexList: [0, 3, 5, 6],
+  targetGiftIndexList: [0, 5, 4, 6],
 };
 
 // 礼物清单
