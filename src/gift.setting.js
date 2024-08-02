@@ -10,7 +10,7 @@ export const GLOBAL_KEYS = {
 export const IS_SHOW_RESTART = true;
 
 // 允许重试次数
-export const RESTART_COUNT = 5;
+export const RESTART_COUNT = 4;
 
 // 首页配置
 export const homeConfig = {
