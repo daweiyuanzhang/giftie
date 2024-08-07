@@ -38,7 +38,7 @@ export const homeConfig = {
 // name 是礼物的全称；alias 是礼物的简称（用来显示在抽奖方格里）
 export const gifts = [
   { key: 'q', name: '全身按摩(30min)', alias: '按摩(30min)', image: './images/spa.png',  description: '「奢华享受, 感受轻松」' },
-  { key: 'i', name: 'LAMER精华乳霜30ml', alias: 'LAMER乳霜', image: './images/lamer.png',  description: '「柔韧修护, 纵享年轻」' },
+  { key: 'i', name: 'LAMER精华乳霜', alias: 'LAMER乳霜', image: './images/lamer.png',  description: '「柔韧修护, 纵享年轻」' },
   { key: 'r', name: 'Sony XT5相机', alias: 'XT5', image: '/images/xt5.jpg',  description: '“留下你的每一份美丽”' },
   { key: 'w', name: '全定制旅行', alias: '全定制旅行', image: './images/travel.png',  description: '「说走就走, 私享定制」' },
   { key: 't', name: '竹哩大餐一顿', alias: '竹哩·栩', image: '/images/zhuli.jpg',  description: '「只要你喜欢，我就陪你去」' },
