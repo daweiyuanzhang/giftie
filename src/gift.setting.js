@@ -18,8 +18,8 @@ export const homeConfig = {
   title: '璐璐专属来啦',
   // 留言，数组的每一项代表一行
   messages: [
-    { key: 'a', wording: '可能不够惊喜', },
-    { key: 's', wording: '但希望你能喜欢', },
+    { key: 'a', wording: '这段时间辛苦啦', },
+    { key: 's', wording: '必须好好奖励下', },
   ],
   // 最终解释权归属人
   owner: '宇峰',
